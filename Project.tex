@@ -1,0 +1,173 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Short Sectioned Assignment
+% LaTeX Template
+% Version 1.0 (5/5/12)
+%
+% This template has been downloaded from:
+% http://www.LaTeXTemplates.com
+%
+% Original author:
+% Frits Wenneker (http://www.howtotex.com)
+%
+% License:
+% CC BY-NC-SA 3.0 (http://creativecommons.org/licenses/by-nc-sa/3.0/)
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%----------------------------------------------------------------------------------------
+%	PACKAGES AND OTHER DOCUMENT CONFIGURATIONS
+%----------------------------------------------------------------------------------------
+
+\documentclass[paper=a4, fontsize=11pt]{scrartcl} % A4 paper and 11pt font size
+
+\usepackage[T1]{fontenc} % Use 8-bit encoding that has 256 glyphs
+\usepackage{fourier} % Use the Adobe Utopia font for the document - comment this line to return to the LaTeX default
+\usepackage[italian]{babel} % English language/hyphenation
+\usepackage{amsmath,amsfonts,amsthm} % Math packages
+\usepackage{unicode}
+\usepackage[utf8x]{inputenc}
+\usepackage{lipsum} % Used for inserting dummy 'Lorem ipsum' text into the template
+
+\usepackage{sectsty} % Allows customizing section commands
+\allsectionsfont{\centering \normalfont\scshape} % Make all sections centered, the default font and small caps
+
+\usepackage{fancyhdr} % Custom headers and footers
+\pagestyle{fancyplain} % Makes all pages in the document conform to the custom headers and footers
+\fancyhead{} % No page header - if you want one, create it in the same way as the footers below
+\fancyfoot[L]{} % Empty left footer
+\fancyfoot[C]{} % Empty center footer
+\fancyfoot[R]{\thepage} % Page numbering for right footer
+\renewcommand{\headrulewidth}{0pt} % Remove header underlines
+\renewcommand{\footrulewidth}{0pt} % Remove footer underlines
+\setlength{\headheight}{13.6pt} % Customize the height of the header
+
+\numberwithin{equation}{section} % Number equations within sections (i.e. 1.1, 1.2, 2.1, 2.2 instead of 1, 2, 3, 4)
+\numberwithin{figure}{section} % Number figures within sections (i.e. 1.1, 1.2, 2.1, 2.2 instead of 1, 2, 3, 4)
+\numberwithin{table}{section} % Number tables within sections (i.e. 1.1, 1.2, 2.1, 2.2 instead of 1, 2, 3, 4)
+
+\setlength\parindent{0pt} % Removes all indentation from paragraphs - comment this line for an assignment with lots of text
+
+%----------------------------------------------------------------------------------------
+%	TITLE SECTION
+%----------------------------------------------------------------------------------------
+
+\newcommand{\horrule}[1]{\rule{\linewidth}{#1}} % Create horizontal rule command with 1 argument of height
+
+\title{	
+\normalfont \normalsize 
+\textsc{Università degli Studi di Palermo}\\
+\textsc{Dottorato di Ricerca}\\[25pt] % Your university, school and/or department name(s)
+\horrule{0.5pt} \\[0.4cm] % Thin top horizontal rule
+\huge \textit{Distributed Mesbehaviour Detection} in sistemi multi-robot cooperanti\\ % The assignment title
+\horrule{2pt} \\[0.5cm] % Thick bottom horizontal rule
+}
+
+\author{Federico Massa} % Your name
+
+\date{\normalsize 21 Agosto 2017} % Today's date or a custom date
+
+\begin{document}
+\bibliographystyle{IEEEtran}
+\maketitle % Print the title
+
+%----------------------------------------------------------------------------------------
+%	INTRO
+%----------------------------------------------------------------------------------------
+
+\section{Introduzione}
+
+La maggiore disponibilità di risorse computazionali degli ultimi decenni ha causato un crescente interesse verso algoritmi distribuiti in applicazioni robotiche\cite{Lynch-book}. In particolare nell'ambito del Controllo, il cambio di paradigma in questo senso ha reso possibile la cooperazione tra agenti eterogenei, ognuno con
+diversi tipi di sensori di bordo, potenza computazionale e attuativa, che, eventualmente avvalendosi di sistemi di comunicazione per lo scambio di informazioni, sono in grado di prendere decisioni indipendenti. Lo sviluppo di tali algoritmi consente dunque di aprire la strada a ``società'' di robot\cite{ram10-bfp}, consapevoli della presenza di altri agenti, con cui
+eventualmente possono cooperare per svolgere dei compiti e scambiare informazioni. In generale la capacità di inferenza richiesta per ognuno degli agenti dipende molto dal tipo di ambiente in cui essi devono lavorare e dai vincoli che devono rispettare. Tuttavia, ogni agente deve rispettare alcune regole
+imposte dalla sua appartenenza a tale ``società'', che ne garantiscono il corretto funzionamento nel pieno rispetto dei vincoli imposti dall'ambiente
+(un tipico esempio di vincolo riguarda la sicurezza necessaria in un ambiente in cui possono esserci umani o elementi fragili) e dal compito assegnato. La corretta dinamica di una società di questo tipo può essere compromessa dalla presenza di un ``intruso'', ovvero un agente che non rispetta (in modo anche parziale) le regole. Si noti che non è necessario che il comportamento di tale intruso sia compatibile con un malfunzionamento, ma è sufficiente che esso non rispetti le regole della società alla quale dovrebbe appartenere. L'identificazione di tale
+intruso può in certi casi essere effettuata singolarmente dagli agenti, ma 
+tipicamente questo non è possibile, a causa del fatto che ogni agente ``osservatore'' possiede una conoscenza solo parziale dello stato degli altri.
+La comunicazione tra gli agenti delle informazioni possedute da ciascuno sull'ambiente circostante può rendere possibile questo obbiettivo, ma pone 
+importanti problemi di sicurezza, rendendo possibile che un agente malevolo introduca informazioni corrotte che possono essere propagate nel sistema. Gran parte del lavoro su queste tematiche studia approcci centralizzati o ibridi, che tipicamente presentano problemi di scalabilità. In questo progetto si propone lo studio di algoritmi completamente distribuiti per la risoluzione del problema della \textit{intrusion detection} in contesti robotici. 
+
+
+%----------------------------------------------------------------------------------------
+% 	STATO DELL'ARTE
+%----------------------------------------------------------------------------------------
+\section{Stato dell'arte}
+Il problema della \textit{intrusion detection} (ID) viene tipicamente studiato in reti di computer in cui si vuole cercare di individuare eventuali attacchi malevoli 
+a danno di uno o più nodi della rete (si veda, ad esempio). L'approccio di molti software che offrono questo servizio è centralizzato (es. Tripwire): il raccoglimento dei dati avviene sui singoli nodi, ma l'analisi viene condotta su un solo nodo o su un numero ristretto. Sebbene le applicazioni robotiche presentino delle sostanziali differenze rispetto alle reti informatiche, molti dei concetti e alcune tecniche possono essere riutilizzate, ed è pertanto importante confrontarsi con gli studi di questo tipo. Uno dei problemi comuni dati dalla centralizzazione è il cosiddetto \textit{single point of failure}, ovvero il
+fatto che la riuscita di un attacco da parte di un software/agente malevolo sul nodo centrale possa compromettere la sicurezza dell'intero sistema. 
+Un altro problema di questo tipo di sistemi è la \textit{scalabilità}, in particolare in quegli ambienti in cui il numero di 
+agenti non è determinabile a priori e può variare nel tempo. Questi problemi sono mitigati in architetture ibride,
+dette \textit{gerarchiche}\cite{HierarchicalIDS}, in cui diversi nodi applicano localmente un algoritmo di ID, mentre la decisione finale viene eseguita da un nodo centrale che sfrutta le pre-analisi
+condotte localmente. Più raramente il tipo di architettura scelta per questi sistemi è di tipo \textit{distribuito}, che per sua natura risulta molto flessibile. In particolare in contesti robotici, tali architetture sono molto adatte ad ambienti \textit{eterogenei}, in cui ogni agente ha diverse capacità attuative e cognitive, e \textit{riconfigurabili}\cite{ram10-bfp},
+dato che non necessitano di un'infrastruttura centralizzata. Esistono molti studi che sfruttano architetture distribuite per la realizzazione di compiti coordinati tra più robot (es. \cite{coordination1}), ma il problema della ID in questo ambito è poco studiato. Si pensi, ad esempio, ad un contesto di tipo autostradale in cui 
+più veicoli (autonomi o semi-autonomi) stanno in formazione di \textit{platoon}, e si coordinano tramite lo scambio di informazioni sensoriali tra vicini\cite{platoon1}. In questo esempio, i veicoli si 
+muovono insieme per realizzare lo stesso compito (raggiungere una determinata destinazione), in un modo più efficiente di quanto farebbero
+senza coordinamento (risparmiando carburante, per esempio). Un ipotetico 
+attaccante potrebbe immettere nel sistema informazioni corrotte per rompere la formazione, ad esempio provocando oscillazioni forzate. \`E importante, quindi, riconoscere che è in atto un attacco e comportarsi 
+di conseguenza. 
+
+%----------------------------------------------------------------------------------------
+% 	OBIETTIVI PROGETTO
+%----------------------------------------------------------------------------------------
+\section{Obiettivi del progetto}
+Il lavoro che viene proposto riguarda lo sviluppo di un framework per la realizzazione di un Intrusion Detection System (IDS) in ambienti robotici eterogenei (ed eventualmente cooperanti), con l'obiettivo di rendere il più possibile
+semplice la riconfigurazione del sistema. Occorre prima di tutto
+definire cosa si intende in questo caso per \textit{intruso}. In una società multi-robot, esso può essere:
+\begin{itemize}
+\item un agente che non rispetta le regole della società (potrebbe idealmente far parte di una società diversa);(society)
+\item un agente malevolo o malfunzionante che diffonde informazioni
+errate nel sistema. (articoli) 
+\end{itemize}
+
+Immaginando che l'IDS sia installato su uno o più agenti della ``società'', e che abbia a disposizione 
+informazioni
+sensoriali adeguate per svolgere tale compito, l'obiettivo del
+progetto è quello di replicare i seguenti passi:
+\begin{description}
+\item[Studio dell'ambiente] Durante questa fase preliminare, 
+l'IDS studia l'ambiente circostante, accumulando tutti i dati
+necessari per svolgere correttamente il suo compito. L'elaborazione
+di mappe ......
+
+\item[Riconoscimento del comportamento] L'IDS
+	costruisce ora, partendo da dati sensoriali di basso livello su 
+	un certo intervallo di tempo, la propria
+	conoscenza del comportamento degli agenti combinando informazioni 
+	sempre di più alto livello. Estendendo questo processo nel tempo
+	sarà possibile riconoscere una sequenza di azioni intraprese
+	dagli agenti osservati. I principali studi su ques
+	
+\item[Verifica delle regole] Una volta individuate le sequenze di azioni 
+	degli agenti osservati ed avendo codificato il sistema di regole
+	a priori, è possibile verificare che la sequenza riconosciuta rispetti le regole o meno 
+\item[Consenso] A causa della parziale conoscenza degli agenti osservati
+dovuta a limiti di portata o accuratezza dei sensori, ostacoli che impediscono
+la visione in una certa area e altri, non è sempre possibile il riconoscimento di una particolare azione, quantomeno in maniera efficiente.
+Lo scambio di informazioni tra robot e il raggiungimento di un consenso 
+sul comportamento possono risolvere il problema. Questo, in realtà, 
+introduce il problema dell'affidabilità delle informazioni ricevute dagli 
+altri agenti.  
+\item[Attribuzione di una reputazione] Per mitigare i danni inferti 
+da un attaccante che cerca di diffondere informazioni sbagliate nel sistema,
+il riconoscimento del comportamento e la verifica delle regole vengono
+effettuati dapprima con le sole informazioni possedute dall'osservatore.
+Solo successivamente si utilizzano le informazioni possedute dagli altri
+osservatori, le quali vengono valutate e confrontate con quelle provienienti da tutti gli altri. Nel caso in cui vi sia una contraddizione tra queste informazioni, un possibile attacco viene rilevato. Dalla verifica delle 
+regole e l'eventuale consenso, invece, è possibile rilevare quegli agenti
+che non rispettano le regole della società. In quegli ambienti in cui abbia senso farlo, si può tenere conto del comportamento di un agente nel tempo 
+attribuendo un punteggio alle sue azioni, positivo quando si comporta secondo le regole e negativo quando non lo fa. Inoltre, avendo riconosciuto
+e giudicato il suo comportamento, è possibile costruire un profilo dell'agente, che ne individui le caratteristiche di comportamento fondamentali. Questo può essere particolarmente utile in grandi società,
+come potrebbe essere quella formata da tanti veicoli autonomi che viaggiano
+in autostrada, perché in questo modo due veicoli che si incontrino per la
+prima volta potrebbero già avere informazioni l'uno sull'altro e plasmare
+il loro comportamento su questo.
+\end{description}
+Fabio Pasqualetti - www.fabiopas.it
+
+
+\cite{IDS1}, \cite{IDS2}, \cite{IDS3}
+
+\clearpage
+\bibliography{project}
+
+
+\end{document}
