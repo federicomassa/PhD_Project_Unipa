@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.17 (TeX Live 2016) (preloaded format=pdflatex 2017.4.19)  21 AUG 2017 00:24
+This is pdfTeX, Version 3.14159265-2.6-1.40.17 (TeX Live 2016) (preloaded format=pdflatex 2017.4.19)  21 AUG 2017 17:28
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -777,14 +777,24 @@ Underfull \hbox (badness 10000) in paragraph at lines 100--104
 
 
 {/usr/local/texlive/2016/texmf-var/fonts/map/pdftex/updmap/pdftex.map}]
+Underfull \hbox (badness 10000) in paragraph at lines 106--111
+
+ []
+
 <platoon.png, id=8, 903.375pt x 602.25pt>
 File: platoon.png Graphic file (type png)
  <use platoon.png>
-Package pdftex.def Info: platoon.png used on input line 116.
+Package pdftex.def Info: platoon.png used on input line 118.
 (pdftex.def)             Requested size: 209.12778pt x 139.41516pt.
- [2 <./platoon.png>]
-LaTeX Font Info:    Try loading font information for TS1+futs on input line 151
+
+Underfull \hbox (badness 10000) in paragraph at lines 129--139
+
+ []
+
+[2 <./platoon.png>]
+LaTeX Font Info:    Try loading font information for TS1+futs on input line 155
 .
+
 (/usr/local/texlive/2016/texmf-dist/tex/latex/fourier/ts1futs.fd
 File: ts1futs.fd 2004/03/26 Fontinst v1.926 font definitions for TS1/futs.
 ) [3]
@@ -792,16 +802,16 @@ File: ts1futs.fd 2004/03/26 Fontinst v1.926 font definitions for TS1/futs.
 File: simulation_01_A03_a.pdf Graphic file (type pdf)
 
 <use simulation_01_A03_a.pdf>
-Package pdftex.def Info: simulation_01_A03_a.pdf used on input line 203.
+Package pdftex.def Info: simulation_01_A03_a.pdf used on input line 205.
 (pdftex.def)             Requested size: 209.12778pt x 59.75218pt.
-LaTeX Font Info:    Try loading font information for TS1+cmss on input line 217
+LaTeX Font Info:    Try loading font information for TS1+cmss on input line 218
 .
 
 (/usr/local/texlive/2016/texmf-dist/tex/latex/base/ts1cmss.fd
 File: ts1cmss.fd 2014/09/29 v2.5h Standard LaTeX font definitions
 )
 LaTeX Font Info:    Font shape `T1/futs/bx/n' in size <10.95> not available
-(Font)              Font shape `T1/futs/b/n' tried instead on input line 217.
+(Font)              Font shape `T1/futs/b/n' tried instead on input line 218.
  [4 <./simulation_01_A03_a.pdf>] (./Project.bbl
 
 Class scrartcl Warning: incompatible usage of \@ssect detected.
@@ -817,29 +827,26 @@ Underfull \hbox (badness 4072) in paragraph at lines 52--55
 e-tec-tion and iden-ti-fi-ca-tion in
  []
 
-(/usr/local/texlive/2016/texmf-dist/tex/latex/ucs/data/uni-1.def
-File: uni-1.def 2013/05/13 UCS: Unicode data U+0100..U+01FF
-) [5]) [6]
-(./Project.aux) ) 
+) [5] (./Project.aux) ) 
 Here is how much of TeX's memory you used:
- 9971 strings out of 493013
- 142881 string characters out of 6133328
- 379586 words of memory out of 5000000
- 13266 multiletter control sequences out of 15000+600000
+ 9363 strings out of 493013
+ 136671 string characters out of 6133328
+ 378586 words of memory out of 5000000
+ 12661 multiletter control sequences out of 15000+600000
  73664 words of font info for 82 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  48i,10n,51p,8818b,655s stack positions out of 5000i,500n,10000p,200000b,80000s
-{/usr/local/texlive/2016/texmf-dist/fonts/enc/dvips/base/8r.en
-c}{/usr/local/texlive/2016/texmf-dist/fonts/enc/dvips/cm-super/cm-super-ts1.enc
-}{/usr/local/texlive/2016/texmf-dist/fonts/enc/dvips/cm-super/cm-super-t1.enc}<
-/usr/local/texlive/2016/texmf-dist/fonts/type1/adobe/utopia/putb8a.pfb></usr/lo
-cal/texlive/2016/texmf-dist/fonts/type1/adobe/utopia/putr8a.pfb></usr/local/tex
-live/2016/texmf-dist/fonts/type1/adobe/utopia/putri8a.pfb></usr/local/texlive/2
-016/texmf-dist/fonts/type1/public/cm-super/sfsx1095.pfb>
-Output written on Project.pdf (6 pages, 1160468 bytes).
+{/usr/local/texlive/2016/texmf-dist/fonts/enc/dvips/base
+/8r.enc}{/usr/local/texlive/2016/texmf-dist/fonts/enc/dvips/cm-super/cm-super-t
+s1.enc}{/usr/local/texlive/2016/texmf-dist/fonts/enc/dvips/cm-super/cm-super-t1
+.enc}</usr/local/texlive/2016/texmf-dist/fonts/type1/adobe/utopia/putb8a.pfb></
+usr/local/texlive/2016/texmf-dist/fonts/type1/adobe/utopia/putr8a.pfb></usr/loc
+al/texlive/2016/texmf-dist/fonts/type1/adobe/utopia/putri8a.pfb></usr/local/tex
+live/2016/texmf-dist/fonts/type1/public/cm-super/sfsx1095.pfb>
+Output written on Project.pdf (5 pages, 1160042 bytes).
 PDF statistics:
- 61 PDF objects out of 1000 (max. 8388607)
- 41 compressed objects within 1 object stream
+ 58 PDF objects out of 1000 (max. 8388607)
+ 39 compressed objects within 1 object stream
  0 named destinations out of 1000 (max. 500000)
  11 words of extra memory for PDF output out of 10000 (max. 10000000)
 

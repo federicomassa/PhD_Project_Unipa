@@ -11,46 +11,48 @@ Database file #1: project.bib
 -- IEEEtran.bst version 1.12 (2007/01/11) by Michael Shell.
 -- http://www.michaelshell.org/tex/ieeetran/bibtex/
 -- See the "IEEEtran_bst_HOWTO.pdf" manual for usage information.
+Warning--empty journal in consensus
 
 Done.
 You've used 11 entries,
             4024 wiz_defined-function locations,
-            896 strings with 9698 characters,
-and the built_in function-call counts, 6925 in all, are:
-= -- 542
-> -- 161
-< -- 43
-+ -- 82
-- -- 30
-* -- 334
-:= -- 1110
+            895 strings with 9642 characters,
+and the built_in function-call counts, 6890 in all, are:
+= -- 528
+> -- 170
+< -- 42
++ -- 88
+- -- 32
+* -- 332
+:= -- 1082
 add.period$ -- 24
 call.type$ -- 11
 change.case$ -- 12
 chr.to.int$ -- 99
-cite$ -- 11
+cite$ -- 12
 duplicate$ -- 524
 empty$ -- 603
-format.name$ -- 38
-if$ -- 1564
+format.name$ -- 41
+if$ -- 1558
 int.to.chr$ -- 0
 int.to.str$ -- 11
-missing$ -- 90
-newline$ -- 58
+missing$ -- 91
+newline$ -- 56
 num.names$ -- 13
-pop$ -- 221
+pop$ -- 231
 preamble$ -- 1
 purify$ -- 0
 quote$ -- 2
-skip$ -- 531
+skip$ -- 523
 stack$ -- 0
 substring$ -- 240
-swap$ -- 382
-text.length$ -- 10
+swap$ -- 381
+text.length$ -- 9
 text.prefix$ -- 0
 top$ -- 5
 type$ -- 11
-warning$ -- 0
+warning$ -- 1
 while$ -- 26
 width$ -- 13
-write$ -- 123
+write$ -- 118
+(There was 1 warning)

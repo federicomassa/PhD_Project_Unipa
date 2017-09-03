@@ -58,7 +58,7 @@
 \textsc{Università degli Studi di Palermo}\\
 \textsc{Dottorato di Ricerca}\\[25pt] % Your university, school and/or department name(s)
 \horrule{0.5pt} \\[0.4cm] % Thin top horizontal rule
-\huge \textit{Distributed Mesbehaviour Detection} in sistemi multi-robot cooperanti\\ % The assignment title
+\huge \textit{Distributed Misbehaviour Detection} in sistemi multi-robot cooperanti\\ % The assignment title
 \horrule{2pt} \\[0.5cm] % Thick bottom horizontal rule
 }
 
@@ -92,22 +92,24 @@ sia prevista l'interazione con esseri umani) e dal compito assegnato.
 Come nelle società umane, la cooperazione
 può svolgere un ruolo determinante, ed esistono già esempi di questo
 tipo nel campo della robotica. Si pensi ad esempio ad un contesto di tipo autostradale in cui 
-più veicoli (autonomi o semi-autonomi) stanno in formazione di \textit{platoon} (Fig. \ref{img:platoon}), e si coordinano tramite lo scambio di informazioni sensoriali tra vicini \cite{platoon1}, al 
+più veicoli (autonomi o semi-autonomi) si mantengono in formazione di \textit{platoon} (Fig. \ref{img:platoon}), e si coordinano tramite lo scambio di informazioni sensoriali tra vicini \cite{platoon1}, al 
 fine di raggiungere in maniera più efficiente la destinazione. \\
 
 
 %MISBEHAVIOUR - ATTACKS
-In questo progetto ci interessiamo a due possibili cause che possono causare
-deviazioni dal comportamento corretto dei robot (\textit{misbehaviours}): la presenza di quelli che 
-da ora in poi definiremo \textit{agenti non cooperanti}, ovvero che presentano comportamenti che infrangono (in modo anche parziale) le regole sociali, e
-i cyber-attacchi che consistono nella comunicazione (da parte di un agente corrotto), di informazioni false sullo stato del sistema. \\
+In questo progetto ci interessiamo a due possibili cause che possono generare
+deviazioni (\textit{misbehaviours}) dal comportamento corretto dei robot: la presenza di quelli che 
+da ora in poi definiremo \textit{agenti non cooperanti}, ovvero che non seguono (in modo anche parziale) le regole sociali, e
+i cyber-attacchi che consistono nella comunicazione (da parte di un agente corrotto), di informazioni scorrette sullo stato del sistema. \\
 
 %DETECTION
 In questa ipotesi, diventa dunque importante realizzare dei
 sistemi di verifica del comportamento degli agenti. In entrambe le situazioni indesiderate descritte, il processo di rilevamento e della possibile identificazione dell'agente compromesso può difficilmente essere portato a compimento da un singolo agente, a causa del fatto che ognuno può possedere una conoscenza solo parziale dello stato degli altri.
 Lo scambio tra gli agenti delle informazioni possedute sull'ambiente circostante può rendere questo problema meglio affrontabile, ma introduce
 anche un problema di sicurezza, rendendo possibile che un agente malevolo 
-interferisca durante la comunicazione. L'obiettivo principale di questo progetto è 
+interferisca durante la comunicazione. \\
+
+L'obiettivo principale di questo progetto è 
 lo sviluppo di un framework distribuito per la rivelazione di misbehaviours
 e di una classe di cyber-attacchi in società multi-robot eterogenee e cooperanti.
 
@@ -124,21 +126,23 @@ e di una classe di cyber-attacchi in società multi-robot eterogenee e cooperant
 % 	STATO DELL'ARTE
 %----------------------------------------------------------------------------------------
 \section{Stato dell'arte}
-Il problema della \textit{mesbehaviour detection} non è tanto affrontato
-in robotica ma si incontra spesso in informatica sotto il nome di \textit{intrusion detection} (ID), dove ha come scopo quello di individuare eventuali attacchi malevoli 
-a danno di uno o più nodi della rete \cite{IDS3}\cite{Pasqualetti_attackdetection}. L'approccio di molti software che offrono questo servizio è centralizzato: il raccoglimento dei dati avviene sui singoli nodi, ma l'analisi viene condotta su un solo nodo o su un numero ristretto. Sebbene le applicazioni robotiche presentino delle sostanziali differenze rispetto alle reti informatiche, molti dei concetti e alcune tecniche possono essere riutilizzate, ed è pertanto importante confrontarsi con gli studi di questo tipo. Uno dei problemi comuni dati dalla centralizzazione è il cosiddetto \textit{single point of failure}, ovvero il
+Il problema della \textit{misbehaviour detection} non è stato ancora molto affrontato
+in robotica, mentre si incontra spesso in informatica sotto il nome di \textit{intrusion detection} (ID), dove lo scopo è quello di individuare eventuali attacchi malevoli 
+a danno di uno o più nodi della rete \cite{IDS3}\cite{Pasqualetti_attackdetection}. L'architettura di molti algoritmi con 
+questo obiettivo è centralizzata: la raccolta dei dati avviene sui singoli nodi, ma l'analisi viene condotta su un solo nodo o su un numero ristretto. Sebbene le applicazioni robotiche presentino delle sostanziali differenze rispetto alle reti informatiche, molti dei concetti sono analoghi, ed è pertanto importante confrontarsi con gli studi di questo tipo. Uno dei problemi comuni dati dalla centralizzazione è il cosiddetto \textit{single point of failure}, ovvero il
 fatto che la riuscita di un attacco da parte di un software/agente malevolo sul nodo centrale possa compromettere la sicurezza dell'intero sistema. 
 Un altro problema di questo tipo di sistemi è la \textit{scalabilità}, in particolare in quegli ambienti in cui il numero di 
-agenti non è determinabile a priori e può variare nel tempo. 
+agenti non sia determinabile a priori e può variare nel tempo. \\
 %Questi problemi sono mitigati in architetture ibride,
 %dette \textit{gerarchiche} \cite{HierarchicalIDS}, in cui diversi nodi applicano localmente un algoritmo di ID, mentre la decisione finale viene eseguita da un nodo centrale che sfrutta le pre-analisi
 %condotte localmente. 
+
 Più raramente il tipo di architettura scelta per questi sistemi è \textit{distribuita} \cite{IDS2}. In particolare in contesti robotici, questa risulta essere molto flessibile, e particolarmente adatta per ambienti eterogenei e in cui la \textit{riconfigurabilità} sia 
 una qualità importante \cite{ram10-bfp}. Alcuni studi riguardano 
 lo sviluppo di un sistema di verifica locale basato sullo studio del moto \cite{misbehDetection}, ma assumono di conoscere il modello dinamico degli
 agenti, ipotesi che ai fini di questo progetto è limitante. Per quanto
-riguarda gli attacchi, invece, è stata già studiata la possibilità di 
-riconoscere un agente che invia informazioni false grazie alla comunicazione con gli altri e il raggiungimento di un consenso\cite{commDetection}. 
+riguarda gli attacchi è stata già studiata la possibilità di 
+riconoscere un agente che invia informazioni scorrette grazie alla comunicazione con gli altri e il raggiungimento di un consenso\cite{commDetection}. 
 
 %----------------------------------------------------------------------------------------
 % 	OBIETTIVI PROGETTO
@@ -170,10 +174,9 @@ di mappe dell'ambiente è un problema molto studiato in robotica \cite{mapping}.
 	conoscenza del comportamento degli agenti combinando informazioni 
 	a formare una conoscenza sempre di più alto livello di astrazione. Estendendo questo processo nel tempo
 	sarà possibile riconoscere una sequenza di azioni intraprese
-	dagli agenti osservati. Spesso questo viene realizzato 
-	tramite tecniche di machine learning \cite{learning}, ma al fine di poter affrontare
-	l'analisi di questo algoritmo formalmente, in questo progetto preferiamo
-	tenere un approccio deterministico. 
+	dagli agenti osservati. Per la realizzazione dell'algoritmo
+	verranno valutati approcci deterministici e di machine learning, 
+	e si cercherà di darne una validazione formale.  
 	
 \item[Verifica delle regole] Una volta individuate le sequenze di azioni 
 	degli agenti osservati ed avendo codificato il sistema di regole
@@ -182,15 +185,14 @@ di mappe dell'ambiente è un problema molto studiato in robotica \cite{mapping}.
 dovuta a limiti di portata o accuratezza dei sensori, ostacoli che impediscono
 la visione in una certa area e altri, non è sempre possibile il riconoscimento di una particolare azione, quantomeno in maniera efficiente.
 Lo scambio di informazioni tra robot e il raggiungimento di un consenso 
-sul comportamento possono risolvere il problema. Questo, in realtà, 
+sul comportamento possono risolvere il problema \cite{consensus}. Questo, in realtà, 
 introduce il problema dell'affidabilità delle informazioni ricevute dagli 
 altri agenti.  
 \item[Attribuzione di una reputazione] Per mitigare i danni inferti 
 da un attaccante \textit{deceptive},
 il riconoscimento del comportamento e la verifica delle regole vengono
 effettuati dapprima con le sole informazioni possedute dall'osservatore.
-Solo successivamente si utilizzano le informazioni possedute dagli altri
-osservatori, le quali vengono valutate e confrontate con quelle provienienti da tutti gli altri. Nel caso in cui vi sia una contraddizione tra queste informazioni, un possibile attacco viene rilevato. Studiare come individuare l'attaccante è uno degli obiettivi del progetto. Dalla verifica delle 
+Solo successivamente si utilizzano le informazioni possedute dagli altri, le quali vengono valutate e confrontate. Nel caso in cui vi sia una contraddizione tra queste informazioni, un possibile attacco viene rilevato. Studiare come individuare l'attaccante è uno degli obiettivi del progetto. Dalla verifica delle 
 regole e l'eventuale consenso, invece, è possibile rilevare gli agenti non cooperanti. Un obiettivo del progetto è anche quello di sviluppare
 un sistema di reputazione per gli agenti, in modo che ad ogni azione 
 riconosciuta venga attribuito un punteggio basato sulla correttezza o meno
@@ -211,8 +213,7 @@ non conforme alle regole sociali.}
 % 	TIMELINE
 %----------------------------------------------------------------------------------------
 \section{Timeline del progetto}
-Durante i tre anni del Corso di Dottorato, il progetto descritto può
-essere affrontato nella maniera seguente:
+Il progetto potrà attuarsi nella seguente maniera:
 \begin{description}
 \item[1° anno]\textbf{- \ Progettazione} \ \\
 	1. Definizione del problema e studio delle ricerche già esistenti \\
@@ -229,7 +230,7 @@ essere affrontato nella maniera seguente:
 	2. Progettazione dell'esperimento (soluzioni hardware adeguate,
 	 complessità dell'ambiente necessaria per ottenere realismo, 
 	 ricerca sito dell'esperimento)\\
-	3. Installazione del MDS sul robot fisico e test
+	3. Installazione del MDS sul robot fisico e test.
 	 
 \end{description}
 

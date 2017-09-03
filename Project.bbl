@@ -73,12 +73,8 @@ S.~Thrun, ``Robotic mapping: A survey,'' in \emph{Exploring Artificial
   Intelligence in the New Millenium}, G.~Lakemeyer and B.~Nebel, Eds.\hskip 1em
   plus 0.5em minus 0.4em\relax Morgan Kaufmann, 2002.
 
-\bibitem{learning}
-\BIBentryALTinterwordspacing
-M.~J. Matarić, ``Learning in behavior-based multi-robot systems: policies,
-  models, and other agents,'' \emph{Cognitive Systems Research}, vol.~2, no.~1,
-  pp. 81 -- 93, 2001. [Online]. Available:
-  \url{http://www.sciencedirect.com/science/article/pii/S1389041701000171}
-\BIBentrySTDinterwordspacing
+\bibitem{consensus}
+R.~Olfati-Saber, J.~Alex~Fax, and R.~Murray, ``Consensus and cooperation in
+  networked multi-agent systems,'' vol.~95, pp. 215--233, 01 2007.
 
 \end{thebibliography}
